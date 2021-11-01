@@ -1,21 +1,37 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Profile from './Profile';
+import Home from './Home';
+import { Alert,Image, SafeAreaView, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
+const Stack = createStackNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer> 
+    <Stack.Navigator initialRoute="Home" >
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Profile" component={Profile}
+          options={{title: "My Profile", headerRight: () => (
+              <TouchableOpacity>
+                <Text style={styles.button}>
+                  Edit
+                </Text>
+              </TouchableOpacity>
+              )}} />
+    </Stack.Navigator>
+    </NavigationContainer>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  button:{
+    fontSize: 19,
+    paddingTop: 6,
+    paddingRight: 18,
+    textAlignVertical: 'center',
+    color: '#458FF7',
+    fontWeight: '400'
+  }
 });
