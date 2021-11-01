@@ -1,5 +1,5 @@
-## Fairytrail
-# How to run the App
+# Fairytrail
+## How to run the App
 Follow the following steps to run the app on your device:
 1. Clone the repository
 2. Install Node.js on your device from https://nodejs.org/en/download/
